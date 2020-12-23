@@ -1,0 +1,164 @@
+<resources>
+    <string name="app_name">Enerji Connect</string>
+    <string name="sql">BUL</string>
+    <string name="makNoHint">Makine No</string>
+    <string name="unvantext">Ünvan</string>
+    <string name="dosyanotitle">Mak.No</string>
+    <string name="dosyanotext">Dosya No</string>
+    <string name="conntext">Bağlantı Durumu</string>
+    <string name="ariza_title">ARIZA</string>
+    <string name="islem_title">İŞLEM</string>
+    <string name="tarih">TARİH</string>
+    <string name="aciklama_title">AÇIK.</string>
+    <string name="sb_sayac_title">SB Sayaç</string>
+    <string name="sb_sayac_title_text">SB SAY</string>
+    <string name="cl_sayac_title">Renk Sayaç</string>
+    <string name="cl_sayac_title_text">RN SAY</string>
+    <string name="tek_title_text">TEKN.</string>
+    <string name="son_sbSayac_Text">S.Sb Sayaç</string>
+    <string name="son_clSayac_Text">S.Cl Sayaç</string>
+    <string name="son_sbSayac_Title">S.SB.SY</string>
+    <string name="son_clSayac_Title">S.RN.SY</string>
+    <string name="isTipiTitleText">İŞ.TİP</string>
+    <string name="rapBilTextTitle">RAPOR BİLGİLERİ</string>
+    <string name="mak_no_ara">MAK NO ARA</string>
+    <string name="servisButtonText">SERVİS</string>
+    <string name="serbildno">Dosya No</string>
+    <string name="serListmodel">Model</string>
+    <string name="serList_seri_no">Seri No</string>
+    <string name="serListSikayet">Şikayet</string>
+    <string name="serListDurumu">Durumu</string>
+    <string name="serListTarih">G.Tarih</string>
+    <string name="serListTeknis">Teknisyen</string>
+    <string name="ara">ARA</string>
+    <string name="isText">İŞ</string>
+    <string name="adetText">ADET</string>
+    <string name="ts_connect">TS CONNECT</string>
+    <string name="rapor">RAPOR</string>
+    <string name="program_ayarlari">TS PROGRAM BAĞLANTI AYARLARI</string>
+    <string name="ayar">AYAR</string>
+    <string name="cik_Text">ÇIK</string>
+    <string name="sifreText">ŞİFRE</string>
+    <string name="setupKayitText">KAYIT</string>
+    <string name="mevcutServerText">BAĞLI BULUNDUĞU SERVER</string>
+    <string name="email">EMAIL</string>
+    <string name="yetkili">Y.KİŞİ</string>
+    <string name="pdf">PDF</string>
+
+    <string-array name="ariza">
+        <item>	2.FEED BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
+        <item>	ANAHTAR İŞARETİ VAR</item>
+        <item>	ARIZA</item>
+        <item>	ARIZA VE PARÇA TESPİTİ YAPILACAK</item>
+        <item>	BOZUK KOPYA VERİYOR	</item>
+        <item>	BULANIK KOPYA VERİYOR</item>
+        <item>	BURUŞUK KOPYA VERİYOR</item>
+        <item>	CLEANING WEB UYARISI</item>
+        <item>	ÇIKIŞTA KAĞIT SIKIŞMASI</item>
+        <item>	ÇOKLU KAĞIT BESLEME</item>
+        <item>	DRUM BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
+        <item>	DUPLEX BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
+        <item>	FATURA SAYACI ALINDI</item>
+        <item>	FINISHERDA KAĞIT SIKIŞMASI</item>
+        <item>	FIRINDA KAĞIT SIKIŞMASI</item>
+        <item>	FUSING ARIZASI GİDERİLDİ</item>
+        <item>	GÖSTERGELER ÇALIŞMIYOR</item>
+        <item>	HİÇ ÇALIŞMIYOR(ELEKTRİK YOK)</item>
+        <item>	HİÇ KAĞIT ALMIYOR</item>
+        <item>	İKİNCİ EL MAKİNE KURULACAK.</item>
+        <item>	KAĞIT SIKIŞTIRIYOR</item>
+        <item>	KİRLİ ZEMİNLİ KOPYA VERİYOR</item>
+        <item>	KONTROL</item>
+        <item>	KONTROL EDİLECEK.</item>
+        <item>	KOPYALAR SİLİNİYOR</item>
+        <item>	KOPYALARIN KÖŞELERİ KATLANIYOR</item>
+        <item>	KOYU KOPYA ÇEKİYOR</item>
+        <item>	MAKİNE AŞIRI ISINIYOR</item>
+        <item>	MAKİNE HAZIRA GEÇMİYOR</item>
+        <item>	MAKİNE İADE ALINDI.</item>
+        <item>	ORİJİNALDEN BÜYÜK VEYA  KÜÇÜK KOPYA</item>
+        <item>	PARÇA DEĞİŞİMİ</item>
+        <item>	PARÇA DEĞİŞİMİ GEREKLİ</item>
+        <item>	PERİYODİK BAKIM</item>
+        <item>	PRINT YAPILAMIYOR</item>
+        <item>	REVİZYONU YAPILAN MAKİNE BIRAKILACAK.</item>
+        <item>	SC- KOD ARIZASI VERİYOR</item>
+        <item>	START TUŞU ÇALIŞMIYOR</item>
+        <item>	STOP TUŞU ÇALIŞMIYOR</item>
+        <item>	TARAMA KURULUMU VE ANLATIM</item>
+        <item>	TESPİT VE KONTROL</item>
+        <item>	TONER TESLİM EDİLDİ</item>
+        <item>	TRANSFER BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
+        <item>	TUŞLAR VEYA DOKUNMATİK EKRAN ÇALIŞMIYOR</item>
+        <item>	YEDEK PARÇA DEĞİŞİMİ GEREKLİ</item>
+        <item>	YENİ MAKİNE KURULACAK</item>
+        <item>	ZIMBA SIKIŞMASI</item>
+    </string-array>
+
+    <string-array name="islem">
+        <item>	BAKIM	</item>
+        <item>	CHARGE ROLLER/KORONA ARIZASI GİDERİLDİ	</item>
+        <item>	CLUTCH ARIZASI GİDERİLDİ	</item>
+        <item>	DEVELOPER ARIZASI GİDERİLDİ	</item>
+        <item>	DİŞLİ VEYA DİŞLİLER ARIZASI GİDERİLDİ	</item>
+        <item>	DUPLEKS ARIZASI GİDERİLDİ	</item>
+        <item>	FATURA SAYACI ALINDI</item>
+        <item>	FINISHER ARIZASI GİDERİLDİ	</item>
+        <item>	FIRMWARE ARIZASI GİDERİLDİ	</item>
+        <item>	FUSING ARIZASI GİDERİLDİ	</item>
+        <item>	IP ADRESİ DEĞİŞİKLİĞİ YAPILDI	</item>
+        <item>	KAĞIT ALMA LASTİKLERİ ARIZASI GİDERİLDİ	</item>
+        <item>	KAĞIT PROBLEMLİ MÜŞTERİ UYARILDI	</item>
+        <item>	KAĞIT SIKIŞMASI DÜZELTİLDİ	</item>
+        <item>	KASET ARIZASI GİDERİLDİ	</item>
+        <item>	LAZER ÜNİTE ARIZASI GİDERİLDİ	</item>
+        <item>	MAKİNE TEKNİK SERVİSE ALINDI	</item>
+        <item>	MONTAJI YAPILARAK TESLİM EDİLDİ(EĞİTİM VERİLDİ)	</item>
+        <item>	MOTOR ARIZASI GİDERİLDİ	</item>
+        <item>	NETWORK AYARLARI TEKRAR YAPILDI	</item>
+        <item>	OPTİK ARIZASI GİDERİLDİ	</item>
+        <item>	PARÇA DEĞİŞİMİ	</item>
+        <item>	PARÇA DEĞİŞİMİ YAPILDI	</item>
+        <item>	PARÇA TESPİTİ VE BAKIM YAPILDI	</item>
+        <item>	PERİYODİK BAKIM YAPILDI	</item>
+        <item>	POWER SUPPLY ARIZASI GİDERİLDİ	</item>
+        <item>	REVİZYONU YAPILAN MAKİNE TESLİM EDİLDİ.	</item>
+        <item>	SAYAÇ ALINDI	</item>
+        <item>	SC KOD ARIZASI GİDERİLDİ	</item>
+        <item>	SCAN TO MAIL/FOLDER TEKRAR KURULDU	</item>
+        <item>	TARAMA KURULUMU YAPILDI	</item>
+        <item>	TESPİT YAPILDI. TEKLİF VERİLECEK	</item>
+        <item>	TONER BESLEME ARIZASI GİDERİLDİ	</item>
+        <item>	TRANSFER ARIZASI GİDERİLDİ	</item>
+        <item>	USB KARTI ARIZALI	</item>
+        <item>	YEDEK PARÇA DEĞİŞİMİ GEREKLİ	</item>
+    </string-array>
+
+    <string-array name="teknisyen">
+        <item>	AÇIK ARIZA	</item>
+        <item>	ANIL ÇELİKLER	</item>
+        <item>	ATİLA AYBAR	</item>
+        <item>	EMİN DUMAN	</item>
+        <item>	KAAN AYBAR	</item>
+        <item>	KENAN DEMİR	</item>
+        <item>	KUBİLAY AYBAR	</item>
+        <item>	ÖZMEN USTA	</item>
+        <item>	SÜLEYMAN ŞAHİN	</item>
+        <item>	TUNCAY KONYA	</item>
+    </string-array>
+
+    <string-array name="is_tipi">
+        <item>DEMO</item>
+        <item>FATURA SAYACI ALINDI</item>
+        <item>KURULUŞ </item>
+        <item>SAYAÇ </item>
+        <item>SERVİS</item>
+    </string-array>
+    <string name="title_activity_imza">imza</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+
+</resources>
