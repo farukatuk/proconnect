@@ -46,6 +46,7 @@
     <string name="pdf">PDF</string>
 
     <string-array name="ariza">
+        <item>	FATURA SAYACI ALINDI</item>
         <item>	2.FEED BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
         <item>	ANAHTAR İŞARETİ VAR</item>
         <item>	ARIZA</item>
@@ -58,7 +59,6 @@
         <item>	ÇOKLU KAĞIT BESLEME</item>
         <item>	DRUM BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
         <item>	DUPLEX BÖLÜMÜNDE KAĞIT SIKIŞMASI</item>
-        <item>	FATURA SAYACI ALINDI</item>
         <item>	FINISHERDA KAĞIT SIKIŞMASI</item>
         <item>	FIRINDA KAĞIT SIKIŞMASI</item>
         <item>	FUSING ARIZASI GİDERİLDİ</item>
@@ -96,13 +96,13 @@
     </string-array>
 
     <string-array name="islem">
+        <item>	FATURA SAYACI ALINDI</item>
         <item>	BAKIM	</item>
         <item>	CHARGE ROLLER/KORONA ARIZASI GİDERİLDİ	</item>
         <item>	CLUTCH ARIZASI GİDERİLDİ	</item>
         <item>	DEVELOPER ARIZASI GİDERİLDİ	</item>
         <item>	DİŞLİ VEYA DİŞLİLER ARIZASI GİDERİLDİ	</item>
         <item>	DUPLEKS ARIZASI GİDERİLDİ	</item>
-        <item>	FATURA SAYACI ALINDI</item>
         <item>	FINISHER ARIZASI GİDERİLDİ	</item>
         <item>	FIRMWARE ARIZASI GİDERİLDİ	</item>
         <item>	FUSING ARIZASI GİDERİLDİ	</item>
@@ -138,6 +138,7 @@
         <item>	AÇIK ARIZA	</item>
         <item>	ANIL ÇELİKLER	</item>
         <item>	ATİLA AYBAR	</item>
+        <item> ÇOŞKUN ŞEKER </item>
         <item>	EMİN DUMAN	</item>
         <item>	KAAN AYBAR	</item>
         <item>	KENAN DEMİR	</item>
@@ -148,10 +149,7 @@
     </string-array>
 
     <string-array name="is_tipi">
-        <item>DEMO</item>
         <item>FATURA SAYACI ALINDI</item>
-        <item>KURULUŞ </item>
-        <item>SAYAÇ </item>
         <item>SERVİS</item>
     </string-array>
     <string name="title_activity_imza">imza</string>
