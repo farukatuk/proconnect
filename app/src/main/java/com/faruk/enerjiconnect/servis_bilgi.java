@@ -216,7 +216,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                 statement = connection.createStatement();
                 final ResultSet resultSet = statement.executeQuery(
                         "SELECT * FROM [ARIZA KAYITLARI]WHERE [TARİH] BETWEEN '"+lBasDate+
-                             "' AND '"+lBitDate+"' AND DURUMU = 'GİDİLECEK' AND [GİDEN TEKNİSYEN] = '"+serTek+"' ORDER BY TARİH DESC;" );
+                             "' AND '"+lBitDate+"' AND DURUMU = 'GİDİLECEK' ORDER BY TARİH DESC;" );
                 if (resultSet.next()== false){
                     sesCal.play(calTubularID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE);
                     Toast.makeText( this,"! KAYIT BULUNAMADI !",Toast.LENGTH_LONG ).show();
@@ -280,7 +280,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                                         statement1 = connection.createStatement();
                                         ResultSet resultSet1 = statement1.executeQuery(
                                                 "UPDATE [ARIZA KAYITLARI] SET DURUMU = 'KAPANDI', [GİDİŞ TARİHİ] = '"
-                                                        +lBugun+"', GSAAT = '"+lSimdi+"' WHERE KAYIT_NO = '"+kaynoData+"';");
+                                                        +lBugun+"', GSAAT = '"+lSimdi+"', [GİDEN TEKNİSYEN] = '"+serTek+"' WHERE KAYIT_NO = '"+kaynoData+"';");
                                     } catch (SQLException e) {
                                         e.printStackTrace();
                                         sesCal.play(korgID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE);
