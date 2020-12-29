@@ -75,7 +75,7 @@ public class GmailSender extends Authenticator {
             else
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             message.addRecipient(Message.RecipientType.CC, new InternetAddress(
-                    "ousta@enerjiburo.com"));
+                    "raporlar@enerjiburo.com"));
 
             Transport.send(message);
         } catch (Exception e) {
