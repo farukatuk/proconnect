@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import java.io.File;
 import java.security.Security;
@@ -24,7 +24,7 @@ public class GmailSender extends Authenticator {
     private Session session;
 
     static {
-        Security.addProvider(new com.faruk.enerjiconnect.JSSEProvider());
+        Security.addProvider(new com.faruk.proconnect.JSSEProvider());
     }
 
     public GmailSender(String user, String password) {

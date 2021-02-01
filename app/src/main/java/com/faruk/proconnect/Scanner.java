@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.faruk.enerjiconnect">
+    package="com.faruk.proconnect">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.faruk.enerjiconnect.imza"
+            android:name=".imza"
             android:label="@string/title_activity_imza">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,16 +25,16 @@
         </activity>
 
         <activity
-            android:name="com.faruk.enerjiconnect.setup"
+            android:name=".setup"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.faruk.enerjiconnect.Scanner"
+            android:name=".Scanner"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.faruk.enerjiconnect.servis_bilgi"
+            android:name=".servis_bilgi"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.faruk.enerjiconnect.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

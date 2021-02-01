@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;

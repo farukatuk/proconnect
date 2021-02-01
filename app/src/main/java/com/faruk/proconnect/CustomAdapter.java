@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -50,7 +50,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView serListSikayet = lineView.findViewById( R.id.serListSikayet );
         TextView serListYetkili = lineView.findViewById( R.id.serListYetkili );
         TextView serlistAlan = lineView.findViewById( R.id.serListAlan );
-        com.faruk.enerjiconnect.servis_data sList =    servis_data.get( i );
+        com.faruk.proconnect.servis_data sList =    servis_data.get( i );
         serListKayNo.setText( sList.getsKayNo());
         serListMakNo.setText( sList.getsMakNo() );
         serListMarka.setText( sList.getsMarka() );

@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -650,7 +650,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Toast.makeText( getApplicationContext(),"MAİL İLGİLİ BİLGİLERDE EKSİKLİK VAR.",Toast.LENGTH_LONG ).show();
                 return;
             }
-            final String mailBody1 = "Sayın "+mailYetkili.toUpperCase()+", \n\n"+"Firmanızda hizmet vermekte olduğumuz "+ mailDNo+" makine numaralı " +mailMarka+
+            final String mailBody1 = mailUnvan.toUpperCase()+ "\n"+"Sayın "+mailYetkili.toUpperCase()+", \n\n"+"Firmanızda hizmet vermekte olduğumuz "+ mailDNo+" makine numaralı " +mailMarka+
                     " Marka, "+ mailModel+" Model ve "+mailSeriNo+" seri numaralı cihazınıza "+ mailTarih+" tarihinde "+mailTeknisyen+" isimli teknisyenimiz tarafından servis verilmiş olup cihaz sağlam olarak teslim edilmiştir. Yapılan işin detayları aşağıdaki gibidir.\n\n"+
                     "SİYAH BEYAZ SAYAÇ:  "+ mailSbSayac+" \n\n RENKLİ SAYAÇ:  "+mailClSayac+"\n\n BİLDİRİLEN ARIZA: "
                     +mailAriza+"\n\n YAPILAN İŞ:  "+mailIslem+"\n\n Açıklama: "+mailNot+"\n\n\n\n";
@@ -666,7 +666,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 @Override
                 public void run() {
                     try{
-                        com.faruk.enerjiconnect.GmailSender sender = new com.faruk.enerjiconnect.GmailSender( "teknikservis@enerjiburo.com","EnerjiBuro1001" );
+                        com.faruk.proconnect.GmailSender sender = new com.faruk.proconnect.GmailSender( "teknikservis@enerjiburo.com","EnerjiBuro1001" );
 
                         sender.sendMail( "Enerji Büro Servis Hakkında Bilgilendirme",mailBody1+mailBody2,"teknikservis@enerjiburo.com",mailReceiver, attachPad );
                         dialog.dismiss();

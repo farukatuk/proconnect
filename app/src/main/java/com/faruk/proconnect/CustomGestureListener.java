@@ -1,4 +1,4 @@
-package com.faruk.enerjiconnect;
+package com.faruk.proconnect;
 
 import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
