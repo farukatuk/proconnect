@@ -5,5 +5,5 @@
     android:padding="10dp"
     android:text="Androchunk"
     android:textColor="#4a148c"
-    android:textSize="18dp">
+    android:textSize="14dp">
 </TextView>

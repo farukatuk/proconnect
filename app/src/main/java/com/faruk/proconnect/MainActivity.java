@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static Button mScannerButton;
     public static Button mBulButton;
     public static Button mMailButton;
-    public static Button mImzaButton;
+    //public static Button mImzaButton;
     public static TextView mMakT;
     public static TextView mTekTextView;
     public static TextView mMailTo;
@@ -163,12 +163,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mScannerButton = findViewById( R.id.scanButton );
         mBulButton = findViewById( R.id.bulButton );
         mMailButton = findViewById( R.id.emailButton );
-        mImzaButton =findViewById(R.id.imza);
+        //mImzaButton =findViewById(R.id.imza);
         mMailTo = findViewById( R.id.custMailAdress );
         mYetkili = findViewById( R.id.yetkiliEditText );
         mScannerButton.setVisibility( View.INVISIBLE );
         // PDF rapor için logo ve küçültülmüş logo ve imza
-       mSign = BitmapFactory.decodeFile(MainActivity.this.getExternalFilesDir(null).toString()+"/sign.png/");
+       //mSign = BitmapFactory.decodeFile(MainActivity.this.getExternalFilesDir(null).toString()+"/sign.png/");
        //mScaledSign = Bitmap.createScaledBitmap(mSign,70,30,false);
        mCpfLogo = BitmapFactory.decodeResource(getResources(),R.drawable.logo);
        mScaledCpfLogo = Bitmap.createScaledBitmap( mCpfLogo,70,30,false );
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         passwordAlMain =degerAlMain.getString( "password",setup.passwordVer );
         tekNameAlMain = degerAlMain.getString( "tekName",setup.tekVer );
         mTekTextView.setText( tekNameAlMain );
-        mImzaButton.setVisibility(View.INVISIBLE);
+        //mImzaButton.setVisibility(View.INVISIBLE);
         // Sql baplantısını yapmak için stringlere koyar
         String ip = ipAlMain;
         String port = "1433";
@@ -191,14 +191,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
         // ************************************************************
         // İmza Sayfasını açmak için
-        mImzaButton.setOnClickListener(new View.OnClickListener() {
+       /* mImzaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, imza.class);
                 startActivity( i );
             }
         });
-
+*/
         // Servis Sayfasını Açmak için *****************************
         mservisButton.setOnClickListener( new View.OnClickListener() {
             @Override
