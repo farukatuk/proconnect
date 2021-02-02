@@ -9,11 +9,10 @@
 
     <TextView
         android:id="@+id/serListAlan"
-        android:layout_width="175dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
         android:background="@drawable/border_style"
         android:text="Arızayı Alan"
         android:textColor="@color/textcolor"
@@ -22,32 +21,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/serListYetkili"
-        app:layout_constraintTop_toBottomOf="@+id/serListDurum"
+        app:layout_constraintTop_toBottomOf="@+id/serListTek"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/serListKayNo"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="300dp"
         android:background="@drawable/border_style"
         android:text="Kayıt No"
+
         android:textColor="@color/textcolor"
         android:textSize="10sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/serListMakNo"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="240dp"
         android:background="@drawable/border_style"
         android:text="@string/makNoHint"
         android:textColor="@color/textcolor"
@@ -61,11 +63,11 @@
 
     <TextView
         android:id="@+id/serListMarka"
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="180dp"
         android:background="@drawable/border_style"
         android:text="Marka"
         android:textColor="@color/textcolor"
@@ -79,11 +81,11 @@
 
     <TextView
         android:id="@+id/serListModel"
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/border_style"
         android:text="@string/serListmodel"
         android:textColor="@color/textcolor"
@@ -97,25 +99,27 @@
 
     <TextView
         android:id="@+id/serListSerNo"
-        android:layout_width="79dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
         android:background="@drawable/border_style"
         android:text="@string/serList_seri_no"
         android:textColor="@color/textcolor"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/serListModel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/serListUnvan"
-        android:layout_width="360dp"
-        android:layout_height="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/border_style"
         android:text="@string/unvantext"
@@ -131,8 +135,9 @@
 
     <TextView
         android:id="@+id/serListSikayet"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/border_style"
         android:text="@string/serListSikayet"
@@ -147,9 +152,11 @@
 
     <TextView
         android:id="@+id/serListDurum"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="300dp"
         android:background="@drawable/border_style"
         android:text="@string/serListDurumu"
         android:textColor="@color/textcolor"
@@ -159,15 +166,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serListUnvan"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.007" />
 
     <TextView
         android:id="@+id/serListTarih"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="220dp"
         android:background="@drawable/border_style"
         android:text="@string/serListTarih"
         android:textColor="@color/textcolor"
@@ -181,11 +188,11 @@
 
     <TextView
         android:id="@+id/serListSaat"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/border_style"
         android:text="G.Saat"
         android:textColor="@color/textcolor"
@@ -199,9 +206,9 @@
 
     <TextView
         android:id="@+id/serListTek"
-        android:layout_width="144dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/border_style"
         android:text="@string/serListTeknis"
@@ -216,9 +223,10 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="3dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
         android:background="@drawable/border_style_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -229,9 +237,11 @@
 
     <TextView
         android:id="@+id/serListYetkili"
-        android:layout_width="175dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="190dp"
         android:background="@drawable/border_style"
         android:text="Yetkili"
         android:textColor="@color/textcolor"
@@ -240,7 +250,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serListDurum"
+        app:layout_constraintTop_toBottomOf="@+id/serListTarih"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
