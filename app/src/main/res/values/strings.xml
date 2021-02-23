@@ -11,17 +11,17 @@
     <string name="tarih">TARİH</string>
     <string name="aciklama_title">AÇIK.</string>
     <string name="sb_sayac_title">SB Sayaç</string>
-    <string name="sb_sayac_title_text">SB SAY</string>
+    <string name="sb_sayac_title_text">S.SY</string>
     <string name="cl_sayac_title">Renk Sayaç</string>
-    <string name="cl_sayac_title_text">RN SAY</string>
+    <string name="cl_sayac_title_text">R.SY</string>
     <string name="tek_title_text">TEKN.</string>
-    <string name="son_sbSayac_Text">S.Sb Sayaç</string>
-    <string name="son_clSayac_Text">S.Cl Sayaç</string>
-    <string name="son_sbSayac_Title">S.SB.SY</string>
-    <string name="son_clSayac_Title">S.RN.SY</string>
+    <string name="son_sbSayac_Text">S.Sb Say.</string>
+    <string name="son_clSayac_Text">S.Cl Say.</string>
+    <string name="son_sbSayac_Title">S.S.SY</string>
+    <string name="son_clSayac_Title">S.R.SY</string>
     <string name="isTipiTitleText">İŞ.TİP</string>
     <string name="rapBilTextTitle">RAPOR BİLGİLERİ</string>
-    <string name="mak_no_ara">MAK NO ARA</string>
+    <string name="mak_no_ara">MK NO ARA</string>
     <string name="servisButtonText">SERVİS</string>
     <string name="serbildno">Dosya No</string>
     <string name="serListmodel">Model</string>
@@ -41,9 +41,11 @@
     <string name="sifreText">ŞİFRE</string>
     <string name="setupKayitText">KAYIT</string>
     <string name="mevcutServerText">BAĞLI BULUNDUĞU SERVER</string>
-    <string name="email">EMAIL</string>
+    <string name="email">MAIL</string>
     <string name="yetkili">Y.KİŞİ</string>
     <string name="pdf">PDF</string>
+    <string name="a3say">A3 SY</string>
+    <string name="s_a3_sayac">S.A3 Say</string>
 
     <string-array name="ariza">
         <item>	FATURA SAYACI ALINDI</item>
@@ -92,6 +94,7 @@
         <item>	TUŞLAR VEYA DOKUNMATİK EKRAN ÇALIŞMIYOR</item>
         <item>	YEDEK PARÇA DEĞİŞİMİ GEREKLİ</item>
         <item>	YENİ MAKİNE KURULACAK</item>
+        <item>  YÖNETİM YAZILIMI ÇALIŞMIYOR </item>
         <item>	ZIMBA SIKIŞMASI</item>
     </string-array>
 
@@ -123,7 +126,6 @@
         <item>	PERİYODİK BAKIM YAPILDI	</item>
         <item>	POWER SUPPLY ARIZASI GİDERİLDİ	</item>
         <item>	REVİZYONU YAPILAN MAKİNE TESLİM EDİLDİ.	</item>
-        <item>	SAYAÇ ALINDI	</item>
         <item>	SC KOD ARIZASI GİDERİLDİ	</item>
         <item>	SCAN TO MAIL/FOLDER TEKRAR KURULDU	</item>
         <item>	TARAMA KURULUMU YAPILDI	</item>
@@ -131,21 +133,22 @@
         <item>	TONER BESLEME ARIZASI GİDERİLDİ	</item>
         <item>	TRANSFER ARIZASI GİDERİLDİ	</item>
         <item>	USB KARTI ARIZALI	</item>
+        <item>  YÖNETİM YAZILIMI TEKRAR YÜKLENDİ </item>
         <item>	YEDEK PARÇA DEĞİŞİMİ GEREKLİ	</item>
     </string-array>
 
     <string-array name="teknisyen">
         <item>	AÇIK ARIZA	</item>
-        <item>	ANIL ÇELİKLER	</item>
-        <item>	ATİLA AYBAR	</item>
-        <item> ÇOŞKUN ŞEKER </item>
-        <item>	EMİN DUMAN	</item>
-        <item>	KAAN AYBAR	</item>
-        <item>	KENAN DEMİR	</item>
-        <item>	KUBİLAY AYBAR	</item>
-        <item>	ÖZMEN USTA	</item>
-        <item>	SÜLEYMAN ŞAHİN	</item>
-        <item>	TUNCAY KONYA	</item>
+        <item>	ALİ OSMAN ATA	</item>
+        <item>	FURKAN HAZARHUN	</item>
+        <item> İBRAHİM YILMAZ </item>
+        <item>	MEHMET KÖSEKÖYLÜ	</item>
+        <item>	MERT ÖZGÜR	</item>
+        <item>	MORATCAN İPÇİ	</item>
+        <item>	ÖMER ŞEN	</item>
+        <item>	ÖZGÜR ORHAN	</item>
+        <item>	SERKAN HAZARHUN	</item>
+        <item>	YILMAZ ÖZGÜR	</item>
     </string-array>
 
     <string-array name="is_tipi">
@@ -157,6 +160,8 @@
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
+
+
+
 
 </resources>

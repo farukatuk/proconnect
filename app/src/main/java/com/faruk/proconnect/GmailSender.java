@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class GmailSender extends Authenticator {
-    private String mailhost = "mail.enerjiburo.com";
+    private String mailhost = "smtp.yandex.com.tr";
     private String user;
     private String password;
     private Session session;
@@ -35,10 +35,10 @@ public class GmailSender extends Authenticator {
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.host", mailhost);
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "587");
-        //props.put("mail.smtp.socketFactory.port", "465");
-        //props.put("mail.smtp.socketFactory.class",
-        //         "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.port", "465");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.quitwait", "false");
 
@@ -54,7 +54,7 @@ public class GmailSender extends Authenticator {
             MimeMessage message = new MimeMessage(session);
             message.setSender(new InternetAddress(sender));
             message.setSubject(subject);
-            message.setFrom(new InternetAddress("teknikservis@enerjiburo.com"));
+            message.setFrom(new InternetAddress("servis@proteknikservis.com"));
 
             MimeBodyPart mbp1 = new MimeBodyPart();
             mbp1.setText(body);
@@ -74,8 +74,8 @@ public class GmailSender extends Authenticator {
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
             else
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
-            message.addRecipient(Message.RecipientType.CC, new InternetAddress(
-                    "raporlar@enerjiburo.com"));
+            //message.addRecipient(Message.RecipientType.CC, new InternetAddress(
+              //      "raporlar@enerjiburo.com"));
 
             Transport.send(message);
         } catch (Exception e) {

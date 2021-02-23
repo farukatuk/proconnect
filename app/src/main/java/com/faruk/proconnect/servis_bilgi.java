@@ -99,7 +99,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
         String ip = ipAlMain;
         String port = "1433";
         String Classes = "net.sourceforge.jtds.jdbc.Driver";
-        String database = "Enerji";
+        String database = "Proteknik";
         String username = userAlMain;
         String password = passwordAlMain;
         String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
@@ -115,7 +115,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
             mSBagDurumText.setText( "BULUNAMADI, INTERNET BAĞLANTINIZI KONTROL EDİNİZ." );
         } catch (SQLException e) {
             e.printStackTrace();
-            mSBagDurumText.setText( "BAĞLANILAMADI, INTERNET BAĞLANTINIZI KONTROL EDİNİZ." );
+            mSBagDurumText.setText( "BAĞLANILAMADI, INTERNETİ KONTROL EDİNİZ." );
         }
         // servis tarihi başlangıç alanına bugünün tarihinin atanması
         final Calendar serBasToday = Calendar.getInstance();
@@ -164,7 +164,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                mSerDateBit.setText( dayOfMonth + "-" + (month + 1) + "-" + year );
+                                mSerDateBit.setText( dayOfMonth + "." + (month + 1) + "." + year );
                             }
                         }, year, month, day );
                 serDateBitPicker.show();
@@ -192,13 +192,13 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
     }
     // Servis kayıtlarının bulunup ekrana getirilmesi ve ilgili kaydın kapatılması.
     public void bul(View view)throws ParseException {
-        servis_data.clear();
+        servis_data.clear();//Bunu yapmazsam bir sonraki aramada listeyi uzatarak veriyor.
         final String serTarBas = mSerDateBas.getText().toString();
         final String serTarBit = mSerDateBit.getText().toString();
         final String serTek = mTeknisyenText.getText().toString();
         SimpleDateFormat formatter = new SimpleDateFormat( "dd-MM-yyyy" );
-        SimpleDateFormat formatter1 = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" );
-        Date sBasDate = formatter.parse( serTarBas );
+        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+        Date sBasDate = formatter.parse(serTarBas);
         Date sBitDate = formatter.parse(serTarBit);
         String lBasDate = new SimpleDateFormat( "yyyy-MM-dd" ).format( sBasDate );
         String lBitDate = new SimpleDateFormat( "yyyy-MM-dd" ).format( sBitDate );
@@ -207,7 +207,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
         if (connection != null) {
             Statement statement = null;
             final ListView servisList = findViewById( R.id.servisList );//xml deki listView link ediliyor
-            // ListView için kullanılan adaptör servis_data listView ile ilişlklendiriliyor ve adaptör çağrılıyor.
+            // ListView için kullanılan adaptör servis_data listView ile ilişlkilendiriliyor ve adaptör çağrılıyor.
             final CustomAdapter adapter = new CustomAdapter( getApplicationContext(), servis_data );
             servisList.setAdapter( adapter );
 
@@ -216,7 +216,8 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                 statement = connection.createStatement();
                 final ResultSet resultSet = statement.executeQuery(
                         "SELECT * FROM [ARIZA KAYITLARI]WHERE [TARİH] BETWEEN '"+lBasDate+
-                             "' AND '"+lBitDate+"' AND DURUMU = 'GİDİLECEK' ORDER BY TARİH DESC;" );
+                                "' AND '"+lBitDate+"' AND DURUMU = 'GİDİLECEK' ORDER BY TARİH DESC;" );
+
                 if (resultSet.next()== false){
                     sesCal.play(calTubularID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE);
                     Toast.makeText( this,"! KAYIT BULUNAMADI !",Toast.LENGTH_LONG ).show();
@@ -228,26 +229,27 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                 } else {
                 do {
                         // SQL den okunan tarih formatını çevirmek için *******************
-                        Date sGDate = formatter1.parse( resultSet.getString( 7 ) );
-                        String lGDate = new SimpleDateFormat( "dd-MM-YYYY" ).format( sGDate );
-                        //***************************************************************************
-                        sIsSayisi = sIsSayisi + 1;
-                        mIsSayisi.setText( String.valueOf( sIsSayisi ) );
+                        Date sGDate = formatter1.parse( resultSet.getString( 6 ) );
+                           String lGDate = new SimpleDateFormat( "dd-MM-YYYY" ).format( sGDate );
+                            //***************************************************************************
+                            sIsSayisi = sIsSayisi + 1;
+                            mIsSayisi.setText( String.valueOf( sIsSayisi ) );
 
-                        // Queryden okunan değerler servis_data listesine atanıyor
-                        servis_data.add( new servis_data(
-                                        resultSet.getString( 3 ), // Kayıt no
-                                        resultSet.getString( 4 ), // Dosya No
-                                        resultSet.getString( 13 ),// Marka
-                                        resultSet.getString( 14 ),// Model
-                                        resultSet.getString( 15 ),// Seri No
-                                        resultSet.getString( 2 ), // Ünvan
-                                        resultSet.getString( 16 ),// Durumu
+                            // Queryden okunan değerler servis_data listesine atanıyor
+                            servis_data.add( new servis_data(
+                                        resultSet.getString( 2 ), // Kayıt no
+                                        resultSet.getString( 3 ), // Dosya No
+                                        resultSet.getString( 12 ),// Marka
+                                        resultSet.getString( 13 ),// Model
+                                        resultSet.getString( 14 ),// Seri No
+                                        resultSet.getString( 1 ), // Ünvan
+                                        resultSet.getString( 15 ),// Durumu
                                         lGDate,// Geliş Tarihi
-                                        resultSet.getString( 8 ),//Geliş Saati
-                                        resultSet.getString( 10 ), //Giden Teknisyen
-                                        resultSet.getString( 6 ),//Şikayet
-                                        resultSet.getString( 5 ), // Yetkili
+                                        //resultSet.getString(6),
+                                        resultSet.getString( 7 ),//Geliş Saati
+                                        resultSet.getString( 9 ), //Giden Teknisyen
+                                        resultSet.getString( 5 ),//Şikayet
+                                        resultSet.getString( 4 ), // Yetkili
                                         resultSet.getString(  9) // Arızayı alan
                                 )
 
@@ -257,6 +259,7 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                 }
                 servisList.setOnItemClickListener( new AdapterView.OnItemClickListener() {
 
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -268,7 +271,6 @@ public class servis_bilgi extends AppCompatActivity implements AdapterView.OnIte
                         final String lSaatGoster = new SimpleDateFormat( "HH:mm" ).format( bugun );
                         final LocalTime simdi = LocalTime.now();
                         final String lSimdi = simdi.toString();
-                        //Toast.makeText(getApplicationContext(),dosnoData,Toast.LENGTH_LONG).show();
                         AlertDialog.Builder kapat = new AlertDialog.Builder( servis_bilgi.this);
                         kapat.setPositiveButton( "TAMAM", new DialogInterface.OnClickListener() {
                             @Override

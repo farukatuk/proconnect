@@ -64,8 +64,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static EditText maciklamaText;
     public static EditText msbSayacText;
     public static EditText mclSayacText;
+    public static EditText mA3SayacText;
     public static TextView msonSbSayacText;
     public static TextView msonClSayacText;
+    public static TextView msonA3SayacText;
     public static Spinner mArizaSpinner;
     public static Spinner mislemSpinner;
     public static Spinner mteknisyenSpinner;
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int ksonSbSayac;
     private int kClSayac;
     private int kSonClSayac;
+    private int kSonA3Sayac;
+    private int kA3Sayac;
 
 
     // ******************************************************************************
@@ -152,11 +156,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mbolgeText = findViewById(R.id.bolgeText);
         msbSayacText = findViewById( R.id.sbSayacText);
         mclSayacText = findViewById(R.id.clSayacText);
+        mA3SayacText = findViewById(R.id.a3SayacText);
         msonClSayacText = findViewById( R.id.sonClSayacText );
+        msonSbSayacText = findViewById( R.id.sonSbSayacText );
+        msonA3SayacText = findViewById(R.id.sonA3SayacText);
         maciklamaText = findViewById( R.id.aciklamaText);
         mArizaSpinner = findViewById(R.id.arizaSpinner);
         mislemSpinner = findViewById(R.id.islemSpinner);
-        msonSbSayacText = findViewById( R.id.sonSbSayacText );
         mTekTextView = findViewById( R.id.tekNameText );
         //mteknisyenSpinner =findViewById( R.id.teknisyenSpinner );
         misTipiSpinner = findViewById( R.id.isTipiSpinner );
@@ -185,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String ip = ipAlMain;
         String port = "1433";
         String Classes = "net.sourceforge.jtds.jdbc.Driver";
-        String database = "Enerji";
+        String database = "Proteknik";
         String username = userAlMain;
         String password = passwordAlMain;
         String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
@@ -257,10 +263,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             mConnText.setText("PROGRAMA BAĞLANDI");
         } catch (ClassNotFoundException e) {
             //e.printStackTrace();
-            mConnText.setText("BULUNAMADI, INTERNET BAĞLANTINIZI KONTROL EDİNİZ.");
+            mConnText.setText("BULUNAMADI, INTERNETİ KONTROL EDİNİZ.");
         } catch (SQLException e) {
             //e.printStackTrace();
-            mConnText.setText("BAĞLANILAMADI, INTERNET BAĞLANTINIZI KONTROL EDİNİZ.");
+            mConnText.setText("BAĞLANILAMADI INTERNETİ KONTROL EDİNİZ.");
         }
         mKayButton.setVisibility( View.INVISIBLE ); // Başlangıçta kayıt butonunu devre dışı bırakmak için.
         mMailButton.setVisibility(View.INVISIBLE);
@@ -362,16 +368,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         return;
                     } else {
                         do {
-                            mDnoText.setText( resultSet.getString( 4 ) );
+                            mDnoText.setText( resultSet.getString( 3 ) );
                             munvanText.setText( resultSet.getString( 5 ) );
                             mbolgeText.setText( resultSet.getString( 7 ) );
                             mMarkaText.setText( resultSet.getString( 8 ) );
                             mModelText.setText( resultSet.getString( 9 ) );
                             mseriNoText.setText( resultSet.getString( 12 ) );
-                            mcariKod = resultSet.getString( 67 );
-                            mMakTip = resultSet.getString( 39 );
-                            mMailTo.setText(resultSet.getString(26));
-                            mYetkili.setText(resultSet.getString(27));
+                            mcariKod = resultSet.getString( 4 );
+                            mMakTip = resultSet.getString( 40 ); // Proteknik için Kategori alınacak
+                            mMailTo.setText(resultSet.getString(28));
+                            mYetkili.setText(resultSet.getString(29));
                             msbSayacText.setText( "0" );
                             mclSayacText.setText( "0" );
                             mKayButton.setVisibility( View.VISIBLE );
@@ -379,10 +385,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                     // Seçilen müşteriye ait son sayaç bilgilerinin RAPOR tablosundangetirilmesi ve ekranda gösterilmesi
                     statement = connection.createStatement();
-                    ResultSet resultSet1 = statement.executeQuery( "SELECT MAX(TOPSAY),MAX([SAYAÇ 2]), MAX([DOSYA NO]) FROM RAPOR WHERE [DOSYA NO]= '" + mDnoText.getText() + "';" );
+                    ResultSet resultSet1 = statement.executeQuery( "SELECT MAX(TOPSAY),MAX([SAYAÇ 2]), MAX([DOSYA NO]), MAX(SAYAC_SB_A3) FROM RAPOR WHERE [DOSYA NO]= '" + mDnoText.getText() + "';" );
                     while (resultSet1.next()) {
                         msonSbSayacText.setText( resultSet1.getString( 1 ) );
                         msonClSayacText.setText( resultSet1.getString( 2 ) );
+                        msonA3SayacText.setText( resultSet1.getString(4));
                         // Eğer okunan makinede hiç sayaç bilgisi yok ise programın hata vermesini engellemek için 0 değerini
                         // atıyorum.
                         if (msonSbSayacText.getText().equals( "" )) {
@@ -390,6 +397,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         }
                         if (msonClSayacText.getText().equals( "" )) {
                             msonClSayacText.setText( "0" );
+                        }
+                        if (mA3SayacText.getText().equals("")){
+                        mA3SayacText.setText("0");
                         }
                     }
                     //***********************************************************************************************************
@@ -441,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 mPaint.setTextAlign( Paint.Align.LEFT );
                 mPaint.setTextSize( 9.0f );
                 // Başlık ************************
-                canvas.drawText( "ENERJİ BÜRO TEKNİK SERVİS RAPORU",50,23,mPaint );
+                canvas.drawText( "PROTEKNİK LTD.ŞTİ TEKNİK SERVİS RAPORU",50,23,mPaint );
                 mPaint.setStyle( Paint.Style.STROKE );
                 mPaint.setStrokeWidth( 1 );
                 //canvas.drawRect( 15,10,120,30,mPaint);
@@ -606,9 +616,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 canvas.drawText("Bu rapor teknik servis sistemimiz tarafından bilgi amaçlı tarafınıza elektronik olarak ulaştırılmıştır.", servisPageInfo.getPageWidth()/2,335,mPaint);
                 canvas.drawText("Lütfen arıza ve malzeme taleplerinizde makine numarasını bildiriniz", servisPageInfo.getPageWidth()/2,345,mPaint);
                 mPaint.setFakeBoldText(true);
-                canvas.drawText("Adres: Bira İşçi Evleri Şehit Özer Ayrancı Sokak No:3  Mecidiyeköy,Şişli/İSTANBUL",servisPageInfo.getPageWidth()/2,360,mPaint);
-                canvas.drawText("Tel:0-212-216 21 23 Fax:0-212-216 24 50", servisPageInfo.getPageWidth()/2,370,mPaint);
-                canvas.drawText("Email: info@enerjiburo.com", servisPageInfo.getPageWidth()/2,380,mPaint);
+                canvas.drawText("Adres: Altınşehir Mah.207.sok No 57 NİLÜFER/BURSA",servisPageInfo.getPageWidth()/2,360,mPaint);
+                canvas.drawText("TEL: 0224 273 20 62  FAX: 0224 273 20 63", servisPageInfo.getPageWidth()/2,370,mPaint);
+                canvas.drawText("Email: info@proteknikservis.com", servisPageInfo.getPageWidth()/2,380,mPaint);
                 servisRapor.finishPage( mPage );
                 //Dosya Yolunu al ve dosyanın adını koy
                 File dosyaYolu = new File(MainActivity.this.getExternalFilesDir(null )+"/Rapor.pdf");
@@ -656,8 +666,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     +mailAriza+"\n\n YAPILAN İŞ:  "+mailIslem+"\n\n Açıklama: "+mailNot+"\n\n\n\n";
             final String mailBody2 = "Konuyu bilgilerinize arz ederiz."+
                     "\n\n İtirazınız olmaması durumunda bu bilgi maili içeriğinde bulunan servis bilgileri doğru kabul edilecektir."+"" +
-                    "\n\n İtirazlarınızı teknikservis@enerjiburo.com adresine iletebilirsiniz."+
-                    "\n\n\n\n\n\n Saygılarımızla,\n\n\n ENERJİ BÜRO MAKİNELERİ \n TİC.LTD.ŞTİ.";
+                    "\n\n İtirazlarınızı servis@proteknikservis.com adresine iletebilirsiniz."+
+                    "\n\n\n\n\n\n Saygılarımızla,\n\n\n PROTEKNİK DİJİTAL FOTOKOPİ \n SİS.TİC.LTD.ŞTİ.";
             final ProgressDialog dialog = new ProgressDialog( MainActivity.this );
             dialog.setTitle( "Mail Gönderiliyor" );
             dialog.setMessage( "Lütfen Bekleyiniz" );
@@ -666,9 +676,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 @Override
                 public void run() {
                     try{
-                        com.faruk.proconnect.GmailSender sender = new com.faruk.proconnect.GmailSender( "teknikservis@enerjiburo.com","EnerjiBuro1001" );
+                        com.faruk.proconnect.GmailSender sender = new com.faruk.proconnect.GmailSender( "servis@proteknikservis.com","cH8KRXNn" );
 
-                        sender.sendMail( "Enerji Büro Servis Hakkında Bilgilendirme",mailBody1+mailBody2,"teknikservis@enerjiburo.com",mailReceiver, attachPad );
+                        sender.sendMail( "Proteknik Servis Hakkında Bilgilendirme",mailBody1+mailBody2,"servis@proteknikservis.com",mailReceiver, attachPad );
                         dialog.dismiss();
 
                     } catch (Exception e){
@@ -685,8 +695,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             mseriNoText.setText( "" );
             msbSayacText.setText( "0" );
             mclSayacText.setText( "0" );
+            mA3SayacText.setText("0");
             msonClSayacText.setText( "" );
             msonSbSayacText.setText("");
+            msonA3SayacText.setText("");
             mbulText.setText( "" );
             mMailTo.setText("");
             mYetkili.setText("");
@@ -715,6 +727,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (yDosyaNo.matches("" )){
             kTopsay = 0;
             ksonSbSayac = 0;
+            kSonA3Sayac = 0;
             sesCal.play(calTubularID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE);
             Toast.makeText( MainActivity.this,"MAKİNEYİ BULMADAN KAYIT YAPAMAZSINIZ",Toast.LENGTH_LONG ).show();
             return;
@@ -722,7 +735,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             kTopsay = Integer.valueOf( msbSayacText.getText().toString());
             ksonSbSayac = Integer.valueOf( msonSbSayacText.getText().toString());
             kClSayac = Integer.valueOf(mclSayacText.getText().toString());
+            kA3Sayac = Integer.valueOf(mA3SayacText.getText().toString());
             kSonClSayac = Integer.valueOf(msonClSayacText.getText().toString());
+            kSonA3Sayac = Integer.valueOf(msonA3SayacText.getText().toString());
+
 
         }
 
@@ -737,7 +753,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Toast.makeText( MainActivity.this," SB SAYAÇ BİR ÖNCEKİ İLE AYNI OLAMAZ",Toast.LENGTH_LONG ).show();
             return;
         }
-        if (Objects.equals(mMakTip, "SİYAH BEYAZ")) {
+        if (Objects.equals(mMakTip, "1")) {
             if (kClSayac != 0) {
                 sesCal.play( korgID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE );
                 Toast.makeText( MainActivity.this, "SİYAH BEYAZ MAKİNEYE RENKLİ SAYAÇ GİRDİNİZ,DÜZELTİN", Toast.LENGTH_LONG ).show();
@@ -745,7 +761,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        if (mMakTip.equals( "RENKLİ" )) {
+        if (mMakTip.equals( "2" )) {
 
             if (kClSayac < kSonClSayac) {
                 sesCal.play( korgID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE );
@@ -754,6 +770,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
         }
+        if (kA3Sayac < kSonA3Sayac){
+            sesCal.play( korgID, LEFT_VOLUME, RIGHT_VOLUME, PRIORITY, NO_LOOP, NORMAL_PLAY_RATE );
+            Toast.makeText( MainActivity.this, "A3 SAYAÇ DÜŞÜK, SAYACI DÜZELTİN", Toast.LENGTH_LONG ).show();
+            return;
+        }
+
         // *****************************************************************************
         //yDate tarihinin formatını değiştirmek için. Bu Sql de date girişinin yyyy.mm.dd olmasından gerekli oldu.
         SimpleDateFormat formatter = new SimpleDateFormat( "dd-MM-yyyy" );
@@ -762,6 +784,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final String ySbSayac = msbSayacText.getText().toString();
         final String yTopSayac = msbSayacText.getText().toString();// Toplam sayaca da aynı değeri yazıyorum çünkü TS programında öyle gerekli
         final String yClSayac = mclSayacText.getText().toString();
+        final String yA3Sayac = mA3SayacText.getText().toString();
         final String yNotes = maciklamaText.getText().toString();
         final String yNotesUpperCase = yNotes.toUpperCase();
 
@@ -777,10 +800,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         statement = connection.createStatement();
 
                         int resultSet  = statement.executeUpdate(
-                                "INSERT INTO RAPOR ([RAPOR TARİHİ],[DOSYA NO],SAYAÇ,[SAYAÇ 2],TOPSAY, " +
+                                "INSERT INTO RAPOR ([RAPOR TARİHİ],[DOSYA NO],SAYAÇ,[SAYAÇ 2],TOPSAY, SAYAC_SB_A3," +
                                         "[STANDART AÇIKLAMA], İŞLEM, NOTLAR, TEKNİSYEN, DEVELOPER,DRUM,BLADE)" +
                                         " VALUES ('"
-                                        +nDate+"','"+yDosyaNo+"','"+ySbSayac+"','"+yClSayac+"','"+yTopSayac+"','"
+                                        +nDate+"','"+yDosyaNo+"','"+ySbSayac+"','"+yClSayac+"','"+yTopSayac+"','"+yA3Sayac+"','"
                                         +yStAciklama+"','"+yIslem+"','"+yNotesUpperCase+"','"+yTeknisyen+"','"+yisTipi+"','"+mcariKod+"','MOBİL');"
 
                         );
