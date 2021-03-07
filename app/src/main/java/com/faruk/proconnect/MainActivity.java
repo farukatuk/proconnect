@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //mImzaButton =findViewById(R.id.imza);
         mMailTo = findViewById( R.id.custMailAdress );
         mYetkili = findViewById( R.id.yetkiliEditText );
-        mScannerButton.setVisibility( View.INVISIBLE );
+        mScannerButton.setVisibility( View.VISIBLE );
         // PDF rapor için logo ve küçültülmüş logo ve imza
        //mSign = BitmapFactory.decodeFile(MainActivity.this.getExternalFilesDir(null).toString()+"/sign.png/");
        //mScaledSign = Bitmap.createScaledBitmap(mSign,70,30,false);
