@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 // activity maindeki alanların değişkenleri
     public static EditText mbulText;
     public static TextView mConnText;
+    public static TextView mStatuText;
     public static EditText mDnoText;
     public static EditText mseriNoText;
     public static EditText mdateText;
@@ -88,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static EditText mYetkili;
     public static Bitmap mCpfLogo;
     public static Bitmap mScaledCpfLogo;
-    public static Bitmap mSign;
-   // public static Bitmap mScaledSign;
+    //public static Bitmap mSign;
+    //public static Bitmap mScaledSign;
     // *************************
 
     public static final String PREFS_NAME = "MyPrefFile"; // Saklanacak değerlerin olduğu dosya
@@ -164,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mArizaSpinner = findViewById(R.id.arizaSpinner);
         mislemSpinner = findViewById(R.id.islemSpinner);
         mTekTextView = findViewById( R.id.tekNameText );
+        mStatuText = findViewById(R.id.statuText);
         //mteknisyenSpinner =findViewById( R.id.teknisyenSpinner );
         misTipiSpinner = findViewById( R.id.isTipiSpinner );
         mScannerButton = findViewById( R.id.scanButton );
@@ -177,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
        //mSign = BitmapFactory.decodeFile(MainActivity.this.getExternalFilesDir(null).toString()+"/sign.png/");
        //mScaledSign = Bitmap.createScaledBitmap(mSign,70,30,false);
        mCpfLogo = BitmapFactory.decodeResource(getResources(),R.drawable.logo);
-       mScaledCpfLogo = Bitmap.createScaledBitmap( mCpfLogo,70,30,false );
+       //mScaledCpfLogo = Bitmap.createScaledBitmap( mCpfLogo,70,30,false);
         // ***************************************
         //Saklanan SQL bağlantı derğerlerini  değişkenlere atar
         SharedPreferences degerAlMain = getSharedPreferences( PREFS_NAME,0 );
@@ -364,10 +366,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         mMarkaText.setText( "" );
                         mModelText.setText( "" );
                         mseriNoText.setText( "" );
+                        mStatuText.setText("");
                         mKayButton.setVisibility( View.INVISIBLE );
                         return;
                     } else {
                         do {
+                            mStatuText.setText( resultSet.getString(31) );
                             mDnoText.setText( resultSet.getString( 3 ) );
                             munvanText.setText( resultSet.getString( 5 ) );
                             mbolgeText.setText( resultSet.getString( 7 ) );
@@ -385,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                     // Seçilen müşteriye ait son sayaç bilgilerinin RAPOR tablosundangetirilmesi ve ekranda gösterilmesi
                     statement = connection.createStatement();
-                    ResultSet resultSet1 = statement.executeQuery( "SELECT MAX(TOPSAY),MAX([SAYAÇ 2]), MAX([DOSYA NO]), MAX(SAYAC_SB_A3) FROM RAPOR WHERE [DOSYA NO]= '" + mDnoText.getText() + "';" );
+                    ResultSet resultSet1 = statement.executeQuery( "SELECT MAX(SAYAÇ),MAX([SAYAÇ 2]), MAX([DOSYA NO]), MAX(SAYAC_SB_A3) FROM RAPOR WHERE [DOSYA NO]= '" + mDnoText.getText() + "';" );
                     while (resultSet1.next()) {
                         msonSbSayacText.setText( resultSet1.getString( 1 ) );
                         msonClSayacText.setText( resultSet1.getString( 2 ) );
@@ -455,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 mPaint.setStyle( Paint.Style.STROKE );
                 mPaint.setStrokeWidth( 1 );
                 //canvas.drawRect( 15,10,120,30,mPaint);
-                //canvas.drawBitmap( mScaledCpfLogo,170,10,mPaint );
+                //canvas.drawBitmap( mCpfLogo,170,10,mPaint );
                 // İlk Satır Tarih ve Teknisyen
                 mPaint.setStyle( Paint.Style.FILL );
                 mPaint.setTextSize(7.0f);
